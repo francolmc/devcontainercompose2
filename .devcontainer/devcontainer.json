@@ -1,0 +1,10 @@
+{
+    "name": "Sitio vscode devcontainer",
+    "dockerComposeFile": "./docker-compose.yaml",
+    "service": "app",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/app",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    }
+}
