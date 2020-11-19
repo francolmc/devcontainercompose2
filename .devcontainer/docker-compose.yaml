@@ -16,9 +16,9 @@ services:
         ports: 
             - 3306:3306
         environment: 
-            MYSQL_ROOT_PASSWORD: <definir password para root de mysql>
+            MYSQL_ROOT_PASSWORD: M4st3rdb4
             MYSQL_USER: laravel_user
-            MYSQL_PASSWORD: <definir password para el usuario laravel_user>
+            MYSQL_PASSWORD: .s3cr3t0.
             MYSQL_DATABASE: laravel_db
         volumes:
             - ../data:/var/lib/mysql
