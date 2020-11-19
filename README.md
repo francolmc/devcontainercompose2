@@ -1,7 +1,7 @@
 # devcontainercompose2
 Ejemplo de proyecto con devcontainer y docker-compose en vscode
 
-El proyecto contiene la configuración del directorio .devcontainer considerando el uso de docker-compose en VS Code. Para probar el ejemplo se se ha creado un proyecto con laravel y mysql.
+El proyecto contiene la configuración del directorio .devcontainer considerando el uso de docker-compose en VS Code. Para probar el ejemplo se se ha creado un proyecto con laravel (configurado con autenticación) y mysql.
 
 Requisitos
 
@@ -44,6 +44,8 @@ Después de descargar el proyecto
 
 - Abrir la paleta de comandos en VSCode en el menu View > Command Palette... y ejecutar ">Remote-Containers: Reopen in Container"
 
+  En caso de aparecer una venta con las opciones "Rebuild" o "Ingnore", preseionar "Rebuild" para que tome los cambios de las claves en el archivo docker-compose.yaml.
+
 - Abrir un terminal en VSCode y ejecutar 
 
   ```
@@ -66,13 +68,19 @@ Después de descargar el proyecto
   DB_PORT=3306
   DB_DATABASE=laravel_db
   DB_USERNAME=laravel_user
-  DB_PASSWORD=<password definida en el archivo docker-compose.yaml>
+  DB_PASSWORD=<password definida para el usuario laravel_user en el archivo docker-compose.yaml>
   ```
 
 - Crear la key de la aplicación
 
   ```
   php artisan key:generate
+  ```
+
+- Generar proceso de migración en la base de datos.
+
+  ```
+  php artisan migrate
   ```
 
 - Ejecutar el servidor de laravel
