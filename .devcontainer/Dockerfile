@@ -16,8 +16,6 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libzip-dev \
     wget
-    
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
@@ -27,5 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 9000 8000
